@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="parametersTest">
+    <test name="testCase">
+        <classes>
+            <parameter name="name" value="ztt" />
+            <parameter name="age" value="18" />
+            <class name="cn.ztt.code.parameter.ParameterTest"/>
+        </classes>
+    </test>
+</suite>
