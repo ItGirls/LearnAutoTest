@@ -13,7 +13,7 @@ public class TestDemo {
 
     @Test
     public void testCase2() {
-        Assert.assertEquals(1, 1);
+        Assert.assertEquals(21, 1);
     }
 
     @Test
