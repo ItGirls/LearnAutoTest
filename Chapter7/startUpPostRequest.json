@@ -1,0 +1,42 @@
+[
+
+  {
+    "description": "不带参数的post请求",
+    "request": {
+      "uri": "/postDemo1",
+      "method": "post"
+    },
+    "response": {
+      "text": "post请求成功"
+    }
+  },
+  {
+    "description": "参数的post请求",
+    "request": {
+      "uri": "/postDemo2",
+      "method": "post",
+      "queries": {
+        "name": "hahaha",
+        "age": "18"
+      }
+    },
+    "response": {
+      "text": "post1请求成功"
+    }
+  },
+  {
+    "description":"这是一个带参数的post请求",
+    "request":{
+      "uri":"/postwithparam",
+      "method":"post",
+      "queries":{
+        "name":"huhansan",
+        "sex":"man"
+      }
+    },
+    "response":{
+      "text":"我胡汉三带着参数来啦！！！"
+
+    }
+  }
+]

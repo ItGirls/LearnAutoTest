@@ -14,7 +14,11 @@
     "description": "带参数的get请求",
     "request": {
       "uri": "/getWithParam",
-      "method": "get"
+      "method": "get",
+      "queries":{
+        "name":"hahaha",
+        "age":"18"
+      }
     },
     "response": {
       "text": "带参get请求成功"
