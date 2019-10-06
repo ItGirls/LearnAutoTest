@@ -1,0 +1,23 @@
+[
+
+  {
+    "description": "不带参数的get请求",
+    "request": {
+      "uri": "/getWithoutParam",
+      "method": "get"
+    },
+    "response": {
+      "text": "不带参get请求成功"
+    }
+  },
+  {
+    "description": "带参数的get请求",
+    "request": {
+      "uri": "/getWithParam",
+      "method": "get"
+    },
+    "response": {
+      "text": "带参get请求成功"
+    }
+  }
+]
