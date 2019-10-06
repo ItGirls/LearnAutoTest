@@ -2,20 +2,24 @@ package cn.ztt.code.cookies;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MyGetCookiesTest {
     private String url;
     private ResourceBundle resourceBundle;
+    private CookieStore store;
 
     @BeforeTest
     public void beforeTest() {
@@ -26,10 +30,19 @@ public class MyGetCookiesTest {
     @Test
     public void getCookies() throws IOException {
         String testUrl = url + resourceBundle.getString("getCookies.uri");
-        HttpClient client = new DefaultHttpClient();
+        DefaultHttpClient client = new DefaultHttpClient();
         HttpGet get = new HttpGet(testUrl);
         HttpResponse response = client.execute(get);
         String result = EntityUtils.toString(response.getEntity(), "utf-8");
         System.out.println(result);
+
+        store = client.getCookieStore();
+        List<Cookie> cookies = store.getCookies();
+        for (Cookie cookie : cookies) {
+            String name = cookie.getName();
+            String value = cookie.getValue();
+            System.out.println("cookie name = "+name+", cookie value="+value);
+
+        }
     }
 }
