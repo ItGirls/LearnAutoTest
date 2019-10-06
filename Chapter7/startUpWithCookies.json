@@ -29,7 +29,7 @@
     "description": "这是一个带有cookie和参数的post请求",
     "request": {
       "uri": "/post/with/cookies",
-      "method": "get",
+      "method": "post",
       "cookies": {
         "login": "true"
       },
@@ -39,7 +39,7 @@
       }
     },
     "response": {
-      "status": "201",
+      "status": 200,
       "json": {
         "hahaha": "success",
         "status": "1"
