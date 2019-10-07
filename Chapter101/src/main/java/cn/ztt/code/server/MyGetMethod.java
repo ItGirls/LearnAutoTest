@@ -1,5 +1,7 @@
-package cn.ztt.code;
+package cn.ztt.code.server;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,11 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
+@Api(value = "/")
 public class MyGetMethod {
 
     @RequestMapping(value = "/getCookies", method = RequestMethod.GET)
+    @ApiOperation(value = "通过这个方法可以获取到Cookies", httpMethod = "GET")
     public String getCookies(HttpServletResponse response) {
         //HttpServerletRequest 装请求信息的类
         //HttpServerletResponse  装响应信息的类
@@ -31,6 +35,7 @@ public class MyGetMethod {
      * 这是一个需要携带cookies信息才能访问的get请求
      */
     @RequestMapping(value = "/get/with/cookies", method = RequestMethod.GET)
+    @ApiOperation(value = "携带cookies信息才能访问的get请求", httpMethod = "GET")
     public String getWithCookies(HttpServletRequest request) {
         //多个key,value组成的数组
         Cookie[] cookies = request.getCookies();
@@ -51,6 +56,7 @@ public class MyGetMethod {
      * 我们来模拟获取商品列表
      */
     @RequestMapping(value = "/get/with/params", method = RequestMethod.GET)
+    @ApiOperation(value="携带参数才能访问的get请求",httpMethod = "GET")
     public Map<String, Integer> getList(@RequestParam Integer start, @RequestParam Integer end) {
         Map<String, Integer> goods = new HashMap<>();
         goods.put("鞋", 350);
@@ -64,7 +70,8 @@ public class MyGetMethod {
      * 第二种需要携带参数才能访问的get请求
      * url:ip:port/get/with/param/10/20
      */
-    @RequestMapping(value="/get/with/params/{start}/{end}")
+    @RequestMapping(value = "/get/with/params/{start}/{end}")
+    @ApiOperation(value="携带参数才能访问的get请求",httpMethod = "GET")
     public Map<String, Integer> getList2(@PathVariable Integer start, @PathVariable Integer end) {
         Map<String, Integer> goods = new HashMap<>();
         goods.put("鞋", 350);
@@ -73,7 +80,6 @@ public class MyGetMethod {
 
         return goods;
     }
-
 
 
 }
